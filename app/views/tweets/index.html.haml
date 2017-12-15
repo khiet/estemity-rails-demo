@@ -1,1 +1,14 @@
-%h1 Listing tweets
+%h1
+  Listing tweets
+
+%ul
+  - @tweets.each do |tweet|
+    %li
+      = tweet.body
+      = tweet.published
+
+
+= form_with model: @tweet, local: true do |f|
+  = f.text_field :body
+  = f.check_box :published
+  = f.submit 'SUBMIT'
